@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Clown</title>
+    <link rel="icon" href="static/images/crypto-clown-smiling.png" type="image/png"> <!-- Favicon Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Patrick+Hand&family=Creepster&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Patrick Hand', cursive;
+            color: #000;
+            text-align: center;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 100%;
+            width: 100%;
+            scroll-behavior: smooth; /* Enable smooth scrolling */
+        }
+
+        /* Fullscreen section styling */
+        section {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+            transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+        }
+
+        /* Home section */
+        #home {
+            background-image: url("static/images/scary-circus.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* About Us section */
+        #about {
+            background-image: url("static/images/about-us-background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Blurred background overlay */
+        #home::before, #about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit; /* Inherit the background image */
+            filter: blur(5px); /* Apply blur effect */
+            z-index: 1; /* Ensure it stays behind the content */
+        }
+
+        /* Logo styling */
+        .logo {
+            max-width: 120px;
+            transition: transform 0.05s ease-in-out;
+            cursor: pointer;
+            z-index: 2; /* Make sure the logo is above the blurred background */
+        }
+
+        /* Social media icons */
+        .social-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2; /* Above the blurred background */
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            margin-top: 150px;
+            z-index: 2; /* Above the blurred background */
+        }
+
+        .nav-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            background-color: transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-button {
+            background-color: #6a5acd;
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.5);
+        }
+
+        .contact-button {
+            background-color: #1e90ff;
+            box-shadow: 0 5px 15px rgba(30, 144, 255, 0.5);
+        }
+
+        .nav-button:hover {
+            color: #000;
+            background-color: #fff;
+        }
+
+        .nav-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Styled text box in About Us section */
+        .about-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 2; /* Above the blurred background */
+        }
+
+        .about-us-box {
+            background-color: #6a5acd;
+            padding: 20px;
+            border-radius: 5px;
+            color: #fff;
+            text-align: left;
+            width: 50%;
+            max-width: 500px;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 1.5rem;
+        }
+
+        .about-us-image {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-us-image img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Contact section */
+        #contact {
+            background-image: url("static/images/scary-clown.gif");
+            background-size: cover;
+            background-position: center;
+            color: #000;
+        }
+
+        #contact h1, #contact p {
+            font-size: 2rem;
+            color: #1e90ff;
+            font-family: 'Rubik Wet Paint', cursive;
+        }
+
+        .contact a {
+            color: #1e90ff;
+            font-family: 'Rubik Wet Paint', cursive;
+            font-size: 2rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 80px;
+            }
+            .about-us-box, #contact h1, #contact p, .contact a {
+                font-size: 1.5rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-us-box, .about-us-image {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Home section -->
+    <section id="home">
+        <div class="social-icons">
+            <a href="https://twitter.com/cryptoclownweb3" target="_blank" aria-label="Twitter">
+                <img src="static/images/x-icon.png" alt="Twitter Icon">
+            </a>
+            <a href="https://t.me/xx_red69hawk_xx" target="_blank" aria-label="Telegram">
+                <img src="static/images/telegram-icon.png" alt="Telegram Icon">
+            </a>
+        </div>
+        <img src="static/images/crypto-clown-serious.png" alt="Crypto Clown Logo" class="logo" id="logo">
+
+        <!-- Navigation buttons -->
+        <div class="nav-buttons">
+            <a href="#about" class="nav-button about-button">About Us</a>
+            <a href="#contact" class="nav-button contact-button">Contact</a>
+        </div>
+    </section>
+
+    <!-- About Us section -->
+    <section id="about">
+        <div class="about-content">
+            <!-- Text Box -->
+            <div class="about-us-box">
+                <h1>About us</h1>
+                <p>We are a group of crypto enthusiasts on a mission to find the next big thing. After years of searching and designing, we’ve perfected what cool design and websites look like.</p>
+                <p>If you're launching a new coin, we can create a website for you or help with design.</p>
+            </div>
+            <!-- Image Box -->
+            <div class="about-us-image">
+                <img src="static/images/crypto-clown-smiling.png" alt="Crypto Clown Smiling">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>For more information, you can contact us at:</p>
+        <p>Email: web.cryptoclown@gmail.com</p>
+        <p>Follow us on X:
+            <a href="https://x.com/cryptoclownweb3" target="_blank" aria-label="X">
+                    <img src="static/images/x-icon.png" alt="X Icon" style="width: 30px; margin-left: 10px;">
+            </a>
+        </p>
+        <p>Telegram:
+            <a href="https://t.me/xx_red69hawk_xx" target="_blank" aria-label="Telegram">
+                <img src="static/images/telegram-icon.png" alt="Telegram Icon" style="width: 30px; margin-left: 10px;">
+            </a>
+        </p>
+    </section>
+
+    <audio id="laughter-audio" src="static/sounds/laughter.mp3" preload="auto"></audio>
+
+    <script>
+        const logo = document.getElementById('logo');
+        const laughterAudio = document.getElementById('laughter-audio');
+        let scale = 1;
+        let increasing = true;
+
+        const expressions = [
+            "static/images/crypto-clown-serious.png",
+            "static/images/crypto-clown-smiling.png"
+        ];
+
+        setInterval(() => {
+            scale = increasing ? scale + 0.1 : scale - 0.1;
+            if (scale >= 4) {
+                increasing = false;
+            } else if (scale <= 1) {
+                increasing = true;
+            }
+            logo.style.transform = `scale(${scale})`;
+            if (scale < 3) {
+                logo.src = expressions[0];
+            } else {
+                logo.src = expressions[1];
+                playLaughter();
+            }
+        }, 50);
+
+        function playLaughter() {
+            if (laughterAudio.paused) {
+                laughterAudio.currentTime = 0;
+                laughterAudio.play();
+            }
+        }
+    </script>
+</body>
+</html>
